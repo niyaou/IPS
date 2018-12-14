@@ -11,8 +11,11 @@
 <body style="width:100%;height:100%; text-align:center;">
 <div style="width:100%;height:100%;text-align:center;">
 <div class="button current" id="uploadBroken">
-    <button class="button-label">断点续传</button>
+    <button class="button-label">断点续传同步</button>
 </div>
+    <div class="button current" id="uploadBroken1">
+        <button class="button-label">断点续传异步</button>
+    </div>
 <div class="button current">
     <button id="toStop">暂停一下</button>
 </div>
@@ -26,11 +29,12 @@
 <script type="text/javascript">
 
 
-    var uploader = null;
+    var uploaderBrokensync = null;
     var uploaderBroken = null;
     var types=getAllSupportedFile()
-
+var fileSize='15360kb'
     initUploadFileBroken("upload files",types);
+    nitUploadFileBrokenSync("upload files",types);
 
     /* 断点续传  */
     function initUploadFileBroken(fileType, str) {
@@ -51,12 +55,14 @@
             url:'/fileuploadBroken',
             multi_selection: false,
             max_retries:3,
-            chunk_size:'1024kb' //10MB
+            chunk_size:fileSize //10MB
         });
         uploaderBroken.init();
-
+        var  myDate ;
         uploaderBroken.bind('FilesAdded', function (uploaderBroken, file) {
-            console.info('*******------file added uploadbroken------*******')
+            myDate = new Date();
+            console.info('*******------file added uploadbroken------*******'+myDate.getTime())
+
 
             uploaderBroken.settings.url=encodeURI(uploaderBroken.settings.url)
             var tr = document.createElement("tr");
@@ -87,7 +93,7 @@
             uploaderBroken.start();
         });
         uploaderBroken.bind('ChunkUploaded', function(up, file, info) {
-            console.info(info)
+            // console.info(info)
         });
         uploaderBroken.bind('UploadProgress', function (up, file) {
             //上传中，显示进度条
@@ -96,15 +102,17 @@
             fileElem.find('.bar').css({"width": percent + "%"});
             fileElem.find(".percentTable").text("上传中 " + percent + "%");
         });
+
         uploaderBroken.bind('FileUploaded', function (up, file, info) {
-            var fileElem = $("#" + file.id);
-            fileElem.find(".percentTable").text("传输成功");
-            var data = eval("(" + info.response + ")")
-            $.each(data, function (i, val) {
-            });
+            var org=myDate.getTime()
+
+            myDate=new Date();
+            var news=myDate.getTime()
+            console.info("传输成功"+news+"  cost:"+(news-org))
         });
+
         uploaderBroken.bind('UploadComplete', function (up, files) {
-            $("#loading").hide();
+
         });
 
         $("#toStop").on('click', function () {
@@ -116,7 +124,69 @@
         });
     }
 
+    /* 断点续传  */
+    function nitUploadFileBrokenSync(fileType, str) {
+        var filters = {
+            mime_types: [
+                {title: fileType, extensions: str}
+            ],
+            max_file_size: '41943040kb', //最大只能上传1024kb的文件
+            prevent_duplicates: false //不允许选取重复文件
+        };
+        if (uploaderBrokensync != null) {
+            uploaderBrokensync.destroy();
+        }
+        uploaderBrokensync = new plupload.Uploader({
+            runtimes: 'html5,html4',
+            browse_button: 'uploadBroken1',
+            filters: filters,
+            url:'/fileuploadBrokenSync',
+            multi_selection: false,
+            max_retries:3,
+            chunk_size:fileSize //10MB
+        });
+        uploaderBrokensync.init();
+        var  myDate ;
+        uploaderBrokensync.bind('FilesAdded', function (uploaderBrokensync, file) {
+            myDate = new Date();
+            console.info('*******------file added uploadbroken  sync------*******'+myDate.getTime())
 
+
+            uploaderBrokensync.settings.url=encodeURI(uploaderBrokensync.settings.url)
+
+            uploaderBrokensync.start();
+        });
+        uploaderBrokensync.bind('ChunkUploaded', function(up, file, info) {
+            // console.info(info)
+        });
+        uploaderBrokensync.bind('UploadProgress', function (up, file) {
+            //上传中，显示进度条
+            var percent = file.percent;
+            var fileElem = $("#" + file.id);
+            fileElem.find('.bar').css({"width": percent + "%"});
+            fileElem.find(".percentTable").text("上传中 " + percent + "%");
+        });
+
+        uploaderBrokensync.bind('FileUploaded', function (up, file, info) {
+            var org=myDate.getTime()
+
+            myDate=new Date();
+            var news=myDate.getTime()
+            console.info("传输成功"+news+"  cost:"+(news-org))
+        });
+
+        uploaderBrokensync.bind('UploadComplete', function (up, files) {
+
+        });
+
+        $("#toStop").on('click', function () {
+            uploaderBrokensync.stop();
+        });
+
+        $("#toStart").on('click', function () {
+            uploaderBrokensync.start();
+        });
+    }
 
 </script>
 </html>

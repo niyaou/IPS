@@ -52,6 +52,71 @@ public class HelloController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+
+
+
+    /**
+     * 上传文件1
+     **/
+    @RequestMapping(value = "/fileuploadBrokenSync", method = RequestMethod.POST)
+    public void uploadFileBrokenSync(MultipartHttpServletRequest request, HttpServletResponse response, ModelMap model) {
+        Map<String, Object> result = new HashMap<>();
+        String market = request.getParameter("market");
+        String chunk = request.getParameter("chunk");
+        String chunks = request.getParameter("chunks");
+        String name = request.getParameter("name");
+        JSONObject obj = new JSONObject();
+        obj.put("chunk", chunk);
+        obj.put("chunks", chunks);
+        obj.put("name", name);
+        try {
+            Iterator<String> names = request.getFileNames();
+            while (names.hasNext()) {
+                String fileName = names.next();
+                MultipartFile part = request.getFile(fileName);
+                int size = (int) part.getSize();
+//                byte[] copy=new byte[1024*1024*2];
+//                IOUtils.read(part.getInputStream(),copy);
+
+                byte[] copy = IOUtils.toByteArray(part.getInputStream());
+
+                part.getInputStream().close();
+//                writeToFile(copy, null, size, FileUtil.currentWorkDir+"temp\\", (name + chunk + "_chuck.part"), obj.toJSONString());
+
+
+                Future f = execute.submit(writeFileSyn(copy, null, size, FileUtil.currentWorkDir+"temp\\", (name + chunk + "_chuck.part"), obj.toJSONString()));
+                copy = null;
+
+
+                result.put("write", (name + chunk + "_chuck.part"));
+                String data = JSON.toJSONString(result);
+                request.getInputStream().close();
+                writeResponse(response, data);
+//                logger.info( ""+((LinkedBlockingQueue)execute.getQueue()).size());
+
+                String write = (String) f.get();
+//                if (execute.getActiveCount() == 0) {
+                if (Integer.parseInt(request.getParameter("chunks"))-Integer.parseInt(request.getParameter("chunk"))==1) {
+                    logger.info("合并文件1");
+                    FileUtil utils = new FileUtil();
+                    int blockFileSize = 1024 * 1024 * 1;
+//                    utils.mergePartFiles(FileUtil.currentWorkDir+"temp\\", ".part", blockFileSize, FileUtil.currentWorkDir + name);
+                }
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     /**
      * 上传文件
      **/
@@ -78,17 +143,19 @@ public class HelloController {
                 byte[] copy = IOUtils.toByteArray(part.getInputStream());
 
                 part.getInputStream().close();
-                writeToFile(copy, null, size, FileUtil.currentWorkDir, (name + chunk + "_chuck.part"), obj.toJSONString());
+                result.put("write", (name + chunk + "_chuck.part"));
+                String data = JSON.toJSONString(result);
+                writeResponse(response, data);
+                writeToFile(copy, null, size, FileUtil.currentWorkDir+"temp\\", (name + chunk + "_chuck.part"), obj.toJSONString());
 
 
 //                Future f = execute.submit(writeFileSyn(copy, null, size, FileUtil.currentWorkDir, (name + chunk + "_chuck.part"), obj.toJSONString()));
                 copy = null;
 
 
-                result.put("write", (name + chunk + "_chuck.part"));
-                String data = JSON.toJSONString(result);
+
                 request.getInputStream().close();
-                writeResponse(response, data);
+
 //                logger.info( ""+((LinkedBlockingQueue)execute.getQueue()).size());
 
 //                String write = (String) f.get();
@@ -97,7 +164,7 @@ public class HelloController {
                     logger.info("合并文件");
                     FileUtil utils = new FileUtil();
                     int blockFileSize = 1024 * 1024 * 1;
-                    utils.mergePartFiles(FileUtil.currentWorkDir, ".part", blockFileSize, FileUtil.currentWorkDir + name);
+//                    utils.mergePartFiles(FileUtil.currentWorkDir+"temp\\", ".part", blockFileSize, FileUtil.currentWorkDir + name);
                 }
             }
 
@@ -139,7 +206,7 @@ public class HelloController {
     }
 
     private String writeToFile(byte[] copy, InputStream iStream, int size, String savePath, String fileName, String json) {
-        logger.info("断点续传发送数据--------" + json);
+//        logger.info("断点续传发送数据--------" + json);
         File fileDir = new File(savePath);
         if (!fileDir.exists()) {
             fileDir.mkdirs();
