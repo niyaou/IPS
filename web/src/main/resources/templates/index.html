@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Spring Boot Demo - FreeMarker</title>
+    <!--<link href="/css/index.css" rel="stylesheet">-->
+    <script type="text/javascript" src="/static/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/plupload/js/plupload.full.min.js"></script>
+    <script type="text/javascript" src="/static/js/mimetype.js"></script>
+    <!--<script type="text/javascript" src="/js/index.js"></script>-->
+</head>
+<body style="width:100%;height:100%; text-align:center;">
+<div style="width:100%;height:100%;text-align:center;">
+<div class="button current" id="uploadBroken">
+    <button class="button-label">断点续传</button>
+</div>
+<div class="button current">
+    <button id="toStop">暂停一下</button>
+</div>
+<div class="button current">
+    <button id="toStart">再次开始</button>
+</div>
+    <button class="a"> click me</button>
+
+</div>
+</body>
+<script type="text/javascript">
+
+
+    var uploader = null;
+    var uploaderBroken = null;
+    var types=getAllSupportedFile()
+
+    initUploadFileBroken("upload files",types);
+
+    /* 断点续传  */
+    function initUploadFileBroken(fileType, str) {
+        var filters = {
+            mime_types: [
+                {title: fileType, extensions: str}
+            ],
+            max_file_size: '41943040kb', //最大只能上传1024kb的文件
+            prevent_duplicates: false //不允许选取重复文件
+        };
+        if (uploaderBroken != null) {
+            uploaderBroken.destroy();
+        }
+        uploaderBroken = new plupload.Uploader({
+            runtimes: 'html5,html4',
+            browse_button: 'uploadBroken',
+            filters: filters,
+            url:'/fileuploadBroken',
+            multi_selection: false,
+            max_retries:3,
+            chunk_size:'1024kb' //10MB
+        });
+        uploaderBroken.init();
+
+        uploaderBroken.bind('FilesAdded', function (uploaderBroken, file) {
+            console.info('*******------file added uploadbroken------*******')
+
+            uploaderBroken.settings.url=encodeURI(uploaderBroken.settings.url)
+            var tr = document.createElement("tr");
+            tr.setAttribute("id", file['id']);
+            tr.fileUpload = file;
+            tr.onclick = function (ev) {
+                var tbody = document.getElementById("tbody");
+                for (var index = 0; index < tbody.children.length; index++) {
+                    var tr = tbody.children[index];
+                    $(tr).css({'background-color': ''});
+                }
+                $(ev.currentTarget).css({'background-color': '#69C3FF'});
+                selectedTr = ev.currentTarget;
+            };
+            var tdName = document.createElement("td");
+            tdName.innerHTML = file['name'];
+            var tdProgress = document.createElement("td");
+            tdProgress.innerHTML = '上传中 0%';
+            tdProgress.setAttribute('class', 'percentTable');
+            var tdBar = document.createElement("td");
+            var tdBarBar = document.createElement('span');
+            tdBarBar.setAttribute('class', 'bar');
+            tdBar.appendChild(tdBarBar);
+            tr.appendChild(tdName);
+            tr.appendChild(tdProgress);
+            tr.appendChild(tdBar);
+            $("#tbody").append(tr);
+            uploaderBroken.start();
+        });
+        uploaderBroken.bind('ChunkUploaded', function(up, file, info) {
+            console.info(info)
+        });
+        uploaderBroken.bind('UploadProgress', function (up, file) {
+            //上传中，显示进度条
+            var percent = file.percent;
+            var fileElem = $("#" + file.id);
+            fileElem.find('.bar').css({"width": percent + "%"});
+            fileElem.find(".percentTable").text("上传中 " + percent + "%");
+        });
+        uploaderBroken.bind('FileUploaded', function (up, file, info) {
+            var fileElem = $("#" + file.id);
+            fileElem.find(".percentTable").text("传输成功");
+            var data = eval("(" + info.response + ")")
+            $.each(data, function (i, val) {
+            });
+        });
+        uploaderBroken.bind('UploadComplete', function (up, files) {
+            $("#loading").hide();
+        });
+
+        $("#toStop").on('click', function () {
+            uploaderBroken.stop();
+        });
+
+        $("#toStart").on('click', function () {
+            uploaderBroken.start();
+        });
+    }
+
+
+
+</script>
+</html>
