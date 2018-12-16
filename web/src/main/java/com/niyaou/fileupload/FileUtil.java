@@ -1,6 +1,9 @@
 package com.niyaou.fileupload;
 
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -61,7 +64,7 @@ public class FileUtil {
     /***
      * 递归获取指定目录下的所有的文件（不包括文件夹）
      * 
-     * @param obj
+     * @param
      * @return
      */
     public static ArrayList<File> getAllFiles(String dirPath) {
@@ -250,21 +253,27 @@ public class FileUtil {
         ArrayList<File> partFiles = FileUtil.getDirFiles(dirPath,
                 partFileSuffix);
         Collections.sort(partFiles, new FileComparator());
+//
+//        RandomAccessFile randomAccessFile = new RandomAccessFile(mergeFileName,
+//                "rw");
+//        randomAccessFile.setLength(partFileSize * (partFiles.size() - 1)
+//                + partFiles.get(partFiles.size() - 1).length());
+//        randomAccessFile.close();
+//
+//        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
+//                partFiles.size(), partFiles.size() * 3, 1, TimeUnit.SECONDS,
+//                new ArrayBlockingQueue<Runnable>(partFiles.size() * 2));
+//
+//        for (int i = 0; i < partFiles.size(); i++) {
+//            threadPool.execute(new MergeRunnable(i * partFileSize,
+//                    mergeFileName, partFiles.get(i)));
+//        }
 
-        RandomAccessFile randomAccessFile = new RandomAccessFile(mergeFileName,
-                "rw");
-        randomAccessFile.setLength(partFileSize * (partFiles.size() - 1)
-                + partFiles.get(partFiles.size() - 1).length());
-        randomAccessFile.close();
 
-        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
-                partFiles.size(), partFiles.size() * 3, 1, TimeUnit.SECONDS,
-                new ArrayBlockingQueue<Runnable>(partFiles.size() * 2));
-
-        for (int i = 0; i < partFiles.size(); i++) {
-            threadPool.execute(new MergeRunnable(i * partFileSize,
-                    mergeFileName, partFiles.get(i)));
-        }
+        //            FileUtil f=new FileUtil();
+//            ArrayList<File> partFiles = FileUtil.getDirFiles(FileUtil.currentWorkDir+"temp\\", ".part");
+//            Collections.sort(partFiles, new FileComparator());
+            mergerNIO(partFiles,FileUtil.currentWorkDir+"temp\\",mergeFileName);
 
     }
 
@@ -274,11 +283,18 @@ public class FileUtil {
      * @author yjmyzz@126.com
      *
      */
-    private class FileComparator implements Comparator<File> {
+    private  class FileComparator implements Comparator<File> {
         public int compare(File o1, File o2) {
-            return o1.getName().compareToIgnoreCase(o2.getName());
+
+            System.out.print( o1.getName().split("\\.")[0]);
+        String [] oo1=o1.getName().split("\\.");
+       String [] oo2=o2.getName().split("\\.");
+            return Integer.valueOf(oo1[oo1.length-2]).compareTo(Integer.valueOf(oo2[oo2.length-2]));
         }
     }
+
+
+
 
     /**
      * 分割处理Runnable
@@ -352,7 +368,130 @@ public class FileUtil {
         }
     }
 
-//    public static void main(String[] args) {
-//       System.out.print( currentWorkDir+"temp\\");
+
+
+
+    public static void mergerNIO( List<File> files,String filepath,String fileName) {
+
+        SimpleDateFormat fd = new SimpleDateFormat("yyyyMMddHHmmss");
+
+        File fout = new File(fileName);
+        System.out.print(files.size());
+        try {
+            @SuppressWarnings("resource")
+            FileChannel mFileChannel = new FileOutputStream(fout).getChannel();
+            FileChannel inFileChannel;
+            System.out.print(files.size());
+
+                    for (File fin : files) {
+                        System.out.print(fin.getName()+"     end with:"+fileName+"\n");
+                            inFileChannel = new FileInputStream(fin)
+                                    .getChannel();
+                            ByteBuffer bufferArray =  ByteBuffer.allocate(1024*1024*20);
+                            inFileChannel.read(bufferArray);
+                            bufferArray.flip();
+                           mFileChannel.write(bufferArray);
+                           bufferArray.clear();
+                            inFileChannel.close();
+                            fin.delete();
+            }
+            mFileChannel.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 获取当前路径下的所有文件中
+     *
+     * @time 2014年8月25日
+     * @auther yuxu.feng
+     * @param filepath
+     * @return
+     */
+//    private static List<File> getFiles(String filepath) {
+//        File file = new File(filepath);
+//        if (!file.exists() | file.listFiles(new MyFileFileter()) == null)
+//            return null;
+//        List<File> fileList = Arrays
+//                .asList(file.listFiles(new MyFileFileter()));
+//        // 最好在这里把 文件过滤掉 只获取文件夹
+//        return sortFolder(fileList);
 //    }
+
+    /**
+     * 按照文件夹按照文件名进行升序 或按着文件名的名字进行升序
+     *
+     * @time 2014年8月25日
+     * @auther yuxu.feng
+     * @param files
+     * @return
+     */
+    private static List<File> sortFolder(List<File> files) {
+        if (files.size() == 0)
+            return null;
+        Collections.sort(files, new Comparator<File>() {
+            @Override
+            public int compare(File o1, File o2) {
+                if (o1.isDirectory() && o2.isFile())
+                    return -1;
+                if (o1.isFile() && o2.isDirectory())
+                    return 1;
+                if (o1.isDirectory() && o2.isDirectory())
+                    return sortFolderName(o1.getName(), o2.getName());
+                else
+                    return 0;
+            }
+        });
+        return files;
+    }
+
+    /**
+     * 根据文件夹名称排序
+     *
+     * @time 2014年8月25日
+     * @auther yuxu.feng
+     * @param startName
+     * @param endName
+     * @return
+     */
+    private static int sortFolderName(String startName, String endName) {
+        if ((parseFloderName(startName) - parseFloderName(endName)) >= 0)
+            return 1;
+        else
+            return -1;
+    }
+
+    /**
+     * 将文件夹的名字(格式为 A.B.C.D) 转换为long型的数字
+     *
+     * @time 2014年8月25日
+     * @auther yuxu.feng
+     * @param floderName
+     * @return
+     */
+    private static long parseFloderName(String floderName) {
+        Scanner sc = new Scanner(floderName).useDelimiter("\\.");
+        return (sc.nextLong() << 24) + (sc.nextLong() << 16)
+                + (sc.nextLong() << 8) + (sc.nextLong());
+    }
+
+
+//        public static void main(String[] args) {
+////       System.out.print( currentWorkDir+"temp\\");
+////          String a=  "eclipse-jee-mars-1-win32-x86_64.zip_chuck.10.part";
+////          String[] aa=a.split("\\.");
+////            for (String d :aa
+////                 ) {
+////                System.out.print( d+"\n");
+////            }
+//
+//            FileUtil f=new FileUtil();
+//            ArrayList<File> partFiles = FileUtil.getDirFiles(FileUtil.currentWorkDir+"temp\\", ".part");
+//            Collections.sort(partFiles, new FileComparator());
+//            mergerNIO(partFiles,FileUtil.currentWorkDir+"temp\\","mergeFile.zip");
+//    }
+
+
 }

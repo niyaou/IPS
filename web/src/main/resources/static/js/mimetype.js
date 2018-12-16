@@ -1,9 +1,9 @@
 var audio=["MP3","MPGA","WAV","OGG","MKA","MID","MIDI","AAC","WMA"]
 var media=["MPEG","MPG","MP4","M4V","3GP","MKV","WMV","AVI"]
-var image=["JPG","JPEG", "GIF","PNG","BMP","MPEG"]
+var image=["JPG","JPEG", "GIF","PNG","BMP","MPEG","SVG"]
 var zip=["ZIP","TAR","7Z"]
-var text=["TXT","HTML","PDF","DOC","XLS","PPT",]
-
+var text=["TXT","HTML","PDF","DOC","XLS","PPT"]
+var application=["EXE","MSI"]
 
 
 
@@ -13,6 +13,11 @@ function getMIMETYPE(str){
 			return 'audio'
 		}
 	}
+    for(var i in application ){
+        if (str.indexOf(application[i])!=-1){
+            return 'application'
+        }
+    }
 	for(var i in media ){
 		if (str.indexOf(media[i])!=-1){
 			return 'media'
@@ -52,7 +57,10 @@ function getAllSupportedFile(){
 	} 
 	for(j = 0; j < text.length; j++) {
 		support+= text[j]+","     
-	} 
-	support=support.substring(0,support.length-1)
+	}
+    for(j = 0; j < application.length; j++) {
+        support+= application[j]+","
+    }
+    support=support.substring(0,support.length-1)
 	return support
 }

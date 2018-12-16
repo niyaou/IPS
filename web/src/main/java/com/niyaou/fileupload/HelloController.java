@@ -146,7 +146,7 @@ public class HelloController {
                 result.put("write", (name + chunk + "_chuck.part"));
                 String data = JSON.toJSONString(result);
                 writeResponse(response, data);
-                writeToFile(copy, null, size, FileUtil.currentWorkDir+"temp\\", (name + chunk + "_chuck.part"), obj.toJSONString());
+                writeToFile(copy, null, size, FileUtil.currentWorkDir+"temp\\", (name+"_chuck." + chunk + ".part"), obj.toJSONString());
 
 
 //                Future f = execute.submit(writeFileSyn(copy, null, size, FileUtil.currentWorkDir, (name + chunk + "_chuck.part"), obj.toJSONString()));
@@ -164,7 +164,9 @@ public class HelloController {
                     logger.info("合并文件");
                     FileUtil utils = new FileUtil();
                     int blockFileSize = 1024 * 1024 * 1;
-//                    utils.mergePartFiles(FileUtil.currentWorkDir+"temp\\", ".part", blockFileSize, FileUtil.currentWorkDir + name);
+                    utils.mergePartFiles(FileUtil.currentWorkDir+"temp\\", ".part", blockFileSize, FileUtil.currentWorkDir+"temp\\" + name);
+
+
                 }
             }
 
