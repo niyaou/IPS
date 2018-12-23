@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eventSheets layout="MainScene" previous="" next="" version="2.2">
+  <item type="instance" UID="30">
+    <item type="behavior" behaviorType="SpeedMoinitorBehavior" name="速度监控"/>
+    <item type="behavior" behaviorType="EightDirectionBehaivor" name="八向运动">
+      <item valueDataType="number" value="200" name="maxSpeed"/>
+      <item valueDataType="number" value="600" name="acceleration"/>
+      <item valueDataType="number" value="500" name="deceleration"/>
+      <item valueDataType="number" value="3" name="directions"/>
+      <item valueDataType="number" value="3" name="angleMode"/>
+      <item valueDataType="number" value="1" name="defaultControls"/>
+      <item valueDataType="number" value="1" name="enabled"/>
+    </item>
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+    <item type="behavior" behaviorType="BoundsOfRectBehaivor" name="边界限制">
+      <item valueDataType="number" value="0" name="boundType"/>
+      <item valueDataType="number" value="0" name="x"/>
+      <item valueDataType="number" value="0" name="y"/>
+      <item valueDataType="number" value="0" name="width"/>
+      <item valueDataType="number" value="0" name="height"/>
+    </item>
+  </item>
+  <item type="instance" UID="103">
+    <item type="behavior" behaviorType="GestureBehavior" name="手势">
+      <item valueDataType="number" value="1" name="showHelpline"/>
+      <item valueDataType="number" value="0" name="helplineColor"/>
+      <item valueDataType="number" value="3" name="helplineThick"/>
+      <item valueDataType="number" value="0.5" name="fadeTime"/>
+    </item>
+  </item>
+  <item type="instance" UID="100"/>
+  <item type="instance" UID="90"/>
+  <item type="instance" UID="97"/>
+  <item type="instance" UID="69"/>
+  <item type="instance" UID="77"/>
+  <item type="instance" UID="80"/>
+  <item type="instance" UID="81"/>
+  <item type="instance" UID="82"/>
+  <item type="instance" UID="87">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="86">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="85">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="84">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="83">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="79">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="78">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="76">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="74">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="73">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="72">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="66">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="57">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="65">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="64">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="63">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="36">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="37">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="39">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="38">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="40">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="41">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="42">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="43">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="44">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="45">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="46">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="47">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="48">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="49">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="50">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="51">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="52">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="53">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="54">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="55">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="56">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="58">
+    <item type="behavior" behaviorType="SolidBehaivor" name="刚体"/>
+  </item>
+  <item type="instance" UID="8"/>
+  <item type="family" target="组1" UID="">
+    <item name="variables"/>
+  </item>
+  <item type="event" conditionRelationShip="true" triggerOnceWhileTrue="false">
+    <item type="condition" callTarget="instance" paramsClass="OnResourceLoadedEvent" callName="onResourceLoaded" isTrigger="true" target="AISprite7"/>
+    <item type="action" persistent="false" callTarget="instance" callName="setRequestHeader" target="Ajax">
+      <item valueDataType="string" value="%22Access-Control-Allow-Origin%3A%20*%22" name="header"/>
+      <item valueDataType="string" value="%22http%3A%2F%2Flocalhost%3A8080%2Fajax%22" name="value"/>
+    </item>
+  </item>
+  <item type="event" conditionRelationShip="true" triggerOnceWhileTrue="false">
+    <item type="condition" callTarget="instance" paramsClass="OnButtonEndEvent" callName="onButtonEnd" isTrigger="true" target="start"/>
+    <item type="action" persistent="false" callTarget="instance" callName="setPosition" target="AISprite29">
+      <item valueDataType="number" value="521" name="16"/>
+      <item valueDataType="number" value="140" name="17"/>
+    </item>
+    <item type="action" persistent="false" callTarget="instance" callName="setAngle" target="AISprite29">
+      <item valueDataType="number" value="0" name="10"/>
+    </item>
+  </item>
+  <item type="event" conditionRelationShip="true" triggerOnceWhileTrue="false">
+    <item type="condition" callTarget="instance" paramsClass="OnButtonEndEvent" callName="onButtonEnd" isTrigger="true" target="park"/>
+    <item type="action" persistent="false" callTarget="instance" callName="setRequestHeader" target="Ajax">
+      <item valueDataType="string" value="%22Access-Control-Allow-Origin%3A%20*%22" name="header"/>
+      <item valueDataType="string" value="%22http%3A%2F%2Flocalhost%3A8080%2Fparking%22" name="value"/>
+    </item>
+    <item type="action" persistent="false" callTarget="instance" callName="ajaxSendToURL" target="Ajax">
+      <item valueDataType="string" value="%22%22" name="tag"/>
+      <item valueDataType="string" value="%22http%3A%2F%2Flocalhost%3A8080%2Fparking%2F%22%2B(AISprite29.x%2FAISprite7.width)%2B%22%2F%22%2B(AISprite29.y%2FAISprite7.height)" name="url"/>
+      <item valueDataType="string" value="AISprite29" name="data"/>
+      <item valueDataType="string" value="%22POST%22" name="method"/>
+    </item>
+    <item type="action" persistent="false" callTarget="instance" callName="ajaxSendToURL" target="Ajax">
+      <item valueDataType="string" value="%22%22" name="tag"/>
+      <item valueDataType="string" value="%22http%3A%2F%2Flocalhost%3A8080%2Fparking1%2F%22%2BAISprite29.x%2B%22%2F%22%2BAISprite29.y" name="url"/>
+      <item valueDataType="string" value="AISprite29" name="data"/>
+      <item valueDataType="string" value="%22POST%22" name="method"/>
+    </item>
+  </item>
+</eventSheets>
