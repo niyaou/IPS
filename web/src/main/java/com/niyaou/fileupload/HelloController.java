@@ -1,4 +1,4 @@
-﻿package com.niyaou.fileupload;
+package com.niyaou.fileupload;
 
 import com.alibaba.fastjson.JSON;
 
@@ -7,13 +7,10 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -22,13 +19,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.*;
 import java.util.concurrent.*;
 
 
 @Controller
 public class HelloController {
-
+  private String longitude;
+  private String latitude;
     @RequestMapping(value = "/")
     @ResponseBody
     public String hello() {
@@ -42,9 +42,71 @@ public class HelloController {
 
     @RequestMapping(value = "/index")
     public String index(HttpServletRequest request, HttpServletResponse response, ModelMap ModelMap) {
-
-        return "index";
+     return "index";
     }
+
+    @RequestMapping(value = "/parking")
+    public String parking(HttpServletRequest request, HttpServletResponse response, ModelMap ModelMap) {
+        return "parking";
+    }
+
+    @RequestMapping(value = "/location")
+    @ResponseBody
+    public String location(HttpServletRequest request, HttpServletResponse response) {
+        JSONObject locate=new JSONObject();
+        locate.put("x",longitude);
+        locate.put("y",latitude);
+        locate.put("flag",getParkingReady(locate));
+        return locate.toJSONString();
+    }
+
+
+    @RequestMapping(value = "/ajax/{a}/{b}",method = RequestMethod.POST)
+    @ResponseBody
+    public String ajax(@PathVariable String a,@PathVariable String b) {
+//        logger.info("x:"+a+"   y:"+b);
+        return a;
+    }
+
+    @RequestMapping(value = "/parking/{x}/{y}",method = RequestMethod.POST)
+    @ResponseBody
+    public String parkingLocation(@PathVariable String x,@PathVariable String y) {
+        logger.info("x:"+x+"   y:"+y);
+        longitude=x;
+        latitude=y;
+        return "x:"+x+"   y:"+y;
+    }
+
+    @RequestMapping(value = "/servicestatus",method = RequestMethod.GET)
+    @ResponseBody
+    public String getServiceStatus() {
+        String host = null;
+        try {
+            host = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+           e.printStackTrace();
+        }
+        logger.info("    ip:"+host);
+        return host;
+    }
+
+    @RequestMapping(value = "/servicestatus1",method = RequestMethod.GET)
+    @ResponseBody
+    public String getServiceStatus1() {
+
+        try {
+            String host = null;
+            host = InetAddress.getLocalHost().getHostAddress();
+            logger.info("1111111 ip:"+host);
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+
+        return "333333333";
+    }
+
+
+
 
     ThreadPoolExecutor execute = new ThreadPoolExecutor(6, 10,
             10L, TimeUnit.SECONDS,
@@ -61,25 +123,31 @@ public class HelloController {
      **/
     @RequestMapping(value = "/fileuploadBrokenSync", method = RequestMethod.POST)
     public void uploadFileBrokenSync(MultipartHttpServletRequest request, HttpServletResponse response, ModelMap model) {
-        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> result1 = new HashMap<>();
         String market = request.getParameter("market");
-        String chunk = request.getParameter("chunk");
-        String chunks = request.getParameter("chunks");
         String name = request.getParameter("name");
+        String chunk = request.getParameter("chunk");
+
+
+
         JSONObject obj = new JSONObject();
         obj.put("chunk", chunk);
+        String chunks = request.getParameter("chunks");
         obj.put("chunks", chunks);
         obj.put("name", name);
         try {
             Iterator<String> names = request.getFileNames();
             while (names.hasNext()) {
                 String fileName = names.next();
-                MultipartFile part = request.getFile(fileName);
-                int size = (int) part.getSize();
-//                byte[] copy=new byte[1024*1024*2];
-//                IOUtils.read(part.getInputStream(),copy);
 
+                MultipartFile part = request.getFile(fileName);
+//                                byte[] copy=new byte[1024*1024*2];
+//                IOUtils.read(part.getInputStream(),copy);
                 byte[] copy = IOUtils.toByteArray(part.getInputStream());
+                int size = (int) part.getSize();
+
+
+
 
                 part.getInputStream().close();
 //                writeToFile(copy, null, size, FileUtil.currentWorkDir+"temp\\", (name + chunk + "_chuck.part"), obj.toJSONString());
@@ -89,8 +157,8 @@ public class HelloController {
                 copy = null;
 
 
-                result.put("write", (name + chunk + "_chuck.part"));
-                String data = JSON.toJSONString(result);
+                result1.put("write", (name + chunk + "_chuck.part"));
+                String data = JSON.toJSONString(result1);
                 request.getInputStream().close();
                 writeResponse(response, data);
 //                logger.info( ""+((LinkedBlockingQueue)execute.getQueue()).size());
@@ -249,5 +317,33 @@ public class HelloController {
         };
 
     }
+
+    private int getParkingReady(JSONObject json){
+       double diviation=4;
+       int result=0;
+       if( diviation((String) json.get("x"),19.0)<diviation  && diviation((String) json.get("y"),37.0)<diviation){
+            return 1;
+        };
+        if( diviation((String) json.get("x"),62.0)<diviation  && diviation((String) json.get("y"),22.0)<diviation){
+            return 1;
+        };
+        if( diviation((String) json.get("x"),72.0)<diviation  && diviation((String) json.get("y"),47.0)<diviation){
+            return 1;
+        };
+        if( diviation((String) json.get("x"),74.0)<diviation  && diviation((String) json.get("y"),79.0)<diviation){
+            return 1;
+        };
+        if( diviation((String) json.get("x"),36.0)<diviation  && diviation((String) json.get("y"),60.0)<diviation){
+            return 1;
+        };
+        return 0;
+    }
+
+    private Double diviation(String target,Double subject){
+
+       Double b= Math.ceil(Double.valueOf(target)*100)-subject;
+       return Math.abs(b);
+    }
+
 
 }
