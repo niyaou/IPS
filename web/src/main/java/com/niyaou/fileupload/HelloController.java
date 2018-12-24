@@ -320,14 +320,14 @@ public class HelloController {
 
     private int getParkingReady(JSONObject json){
        double diviation=4;
-       int result=0;
+
        if( diviation((String) json.get("x"),19.0)<diviation  && diviation((String) json.get("y"),37.0)<diviation){
             return 1;
         };
         if( diviation((String) json.get("x"),62.0)<diviation  && diviation((String) json.get("y"),22.0)<diviation){
             return 1;
         };
-        if( diviation((String) json.get("x"),72.0)<diviation  && diviation((String) json.get("y"),47.0)<diviation){
+        if( diviation((String) json.get("x"),72.0)<diviation  && diviation((String) json.get("y"),45.0)<diviation){
             return 1;
         };
         if( diviation((String) json.get("x"),74.0)<diviation  && diviation((String) json.get("y"),79.0)<diviation){

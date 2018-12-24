@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <title>parking</title>
     <script type="text/javascript" src="/static/jquery/jquery.min.js"></script>
+    <style>
+        .warning_pattern{
+            position: absolute; text-align:center;
+            vertical-align:middle;
+            align-items: center;
+            justify-content:center;
+            display:flex;
+            left:43%;top:35%;color:#eeeeee ;
+            width:10%;height:8%;background-color: #737373
+        }
+
+        .warning_pattern_disappear{
+            position: absolute; text-align:center;
+            vertical-align:middle;
+            align-items: center;
+            justify-content:center;
+            display:none;
+            left:43%;top:35%;color:#eeeeee ;width:10%;height:8%;background-color: #737373
+        }
+    </style>
 </head>
 <body style="margin:0; padding:0;height:100%;width:100%;font-size: 16px">
 <div style="margin:0; padding:0;height:100%;width:100%;position: relative">
@@ -18,8 +38,8 @@
         <img id="car" src="static/img/pingk.jpg" style="left:50%;top:75%;z-index: 100;float:none;position: absolute;
 
 width:1.3rem;/* Opera */" >
-    <div id='warning'style="position: absolute;left:43%;top:35%;color:#eeeeee ;width:10%;height:8%;background-color: #737373">
-       <span style="font-size: 30px">   未停在车位</span>
+    <div id='warning' class="warning_pattern">
+       <span style="font-size: 30px;">   未停在车位</span>
     </div>
 
 <div style="position: absolute;left:43%;top:75%;">
@@ -32,12 +52,16 @@ width:1.3rem;/* Opera */" >
         $.get('/location',function (e) {
             e=  JSON.parse(e);
           if(e.flag==1){
-              $("#warning").css("display",'none')
+              $("#warning").removeClass('warning_pattern')
+              $("#warning").addClass('warning_pattern_disappear')
               $("#car").css("top",(e.y*98)+"%")
               $("#car").css("left",(e.x*98)+"%")
               console.info(e)
           }else{
-              $("#warning").css("display",'inline')
+              $("#warning").removeClass('warning_pattern_disappear')
+              $("#warning").addClass('warning_pattern')
+              $("#car").css("top","75%")
+              $("#car").css("left","50%")
           }
         })
     }
