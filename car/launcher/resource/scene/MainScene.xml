@@ -1133,4 +1133,55 @@
       </item>
     </item>
   </item>
+  <item UID="118" plugin="AISprite" name="AISprite117" cacheAsBitmap="false" parallaxX="100" parallaxY="100" index="5" family="displayobject">
+    <item name="name" value="AISprite117" valueDataType="string"/>
+    <item name="uiGuid" value="118" valueDataType="string"/>
+    <item name="global" value="false" valueDataType="boolean"/>
+    <item name="visible" value="true" valueDataType="boolean"/>
+    <item name="x" value="1158.0090344593107" valueDataType="number"/>
+    <item name="y" value="991.8118930535733" valueDataType="number"/>
+    <item name="anchorX" value="0.5" valueDataType="number"/>
+    <item name="anchorY" value="0.5" valueDataType="number"/>
+    <item name="width" value="740.9397851519111" valueDataType="number"/>
+    <item name="height" value="170.9866397505026" valueDataType="number"/>
+    <item name="angle" value="0" valueDataType="number"/>
+    <item name="alpha" value="1" valueDataType="number"/>
+    <item name="url" value="resource%2FuserAsset%2Ftimgw(55).jpg" valueDataType="string"/>
+    <item name="enabled" value="false" valueDataType="boolean"/>
+    <item name="collision" value="false" valueDataType="boolean"/>
+    <item name="collisionData" value="0%2Fn0.00%7C170.99%2C740.94%7C170.99%2C740.94%7C0.00%2C0.00%7C0.00" sourceValue="0%2Fn0.00%7C170.99%2C740.94%7C170.99%2C740.94%7C0.00%2C0.00%7C0.00" valueDataType="string"/>
+    <item name="layer" value="2" valueDataType="number"/>
+  </item>
+  <item UID="112" plugin="AITextField" name="AITextField111" cacheAsBitmap="false" parallaxX="100" parallaxY="100" index="6" family="text">
+    <item name="name" value="AITextField111" valueDataType="string"/>
+    <item name="uiGuid" value="112" valueDataType="string"/>
+    <item name="global" value="false" valueDataType="boolean"/>
+    <item name="visible" value="true" valueDataType="boolean"/>
+    <item name="x" value="1304.6669219959736" valueDataType="number"/>
+    <item name="y" value="911.5160387010447" valueDataType="number"/>
+    <item name="anchorX" value="0.7004032783437425" valueDataType="number"/>
+    <item name="anchorY" value="-0.09188206552844538" valueDataType="number"/>
+    <item name="width" value="740.8984362339155" valueDataType="number"/>
+    <item name="height" value="144.55762443884086" valueDataType="number"/>
+    <item name="angle" value="359.9196680834943" valueDataType="number"/>
+    <item name="alpha" value="1" valueDataType="number"/>
+    <item name="text" value="" valueDataType="string"/>
+    <item name="fontFamily" value="%E5%AE%8B%E4%BD%93" valueDataType="string"/>
+    <item name="size" value="13" valueDataType="number"/>
+    <item name="textColor" value="1760055" valueDataType="number"/>
+    <item name="bold" value="false" valueDataType="boolean"/>
+    <item name="enableInput" value="false" valueDataType="boolean"/>
+    <item name="inputType" value="text" valueDataType="string"/>
+    <item name="textAlign" value="left" valueDataType="string"/>
+    <item name="verticalAlign" value="top" valueDataType="string"/>
+    <item name="maxChars" value="10000000000000000000000" valueDataType="number"/>
+    <item name="italic" value="false" valueDataType="boolean"/>
+    <item name="wordWrap" value="true" valueDataType="boolean"/>
+    <item name="enabled" value="true" valueDataType="boolean"/>
+    <item name="collision" value="false" valueDataType="boolean"/>
+    <item name="layer" value="2" valueDataType="number"/>
+    <item name="behaviors">
+      <item type="behavior" behaviorType="TimerBehavior" name="计时器"/>
+    </item>
+  </item>
 </layout>

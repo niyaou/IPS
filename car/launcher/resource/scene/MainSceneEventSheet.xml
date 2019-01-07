@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <eventSheets layout="MainScene" previous="" next="" version="2.2">
+  <item type="instance" UID="112">
+    <item type="behavior" behaviorType="TimerBehavior" name="计时器"/>
+  </item>
+  <item type="instance" UID="118"/>
   <item type="instance" UID="30">
+    <item initValue="0" variableType="number" variableName="lastx" type="variable"/>
+    <item initValue="0" variableType="number" variableName="lasty" type="variable"/>
+    <item initValue="0" variableType="number" variableName="lastangle" type="variable"/>
     <item type="behavior" behaviorType="SpeedMoinitorBehavior" name="速度监控"/>
     <item type="behavior" behaviorType="EightDirectionBehaivor" name="八向运动">
       <item valueDataType="number" value="200" name="maxSpeed"/>
@@ -189,6 +196,34 @@
       <item valueDataType="string" value="%22http%3A%2F%2Flocalhost%3A8080%2Fparking1%2F%22%2BAISprite29.x%2B%22%2F%22%2BAISprite29.y" name="url"/>
       <item valueDataType="string" value="AISprite29" name="data"/>
       <item valueDataType="string" value="%22POST%22" name="method"/>
+    </item>
+  </item>
+  <item type="event" conditionRelationShip="true" triggerOnceWhileTrue="false">
+    <item type="condition" callTarget="instance" paramsClass="EveryXSecondsEvent" callName="everyXSecondEvent" isTrigger="false" target="System">
+      <item valueDataType="number" value="1" name="interval"/>
+    </item>
+    <item type="action" persistent="false" callTarget="instance" callName="appendText" target="AITextField111">
+      <item valueDataType="string" value="ls.hours()%2B%22%3A%22%2Bls.minutes()%2B%22%3A%22%2Bls.seconds()%2B%22%20%20%20lon%3A%22%2B%20AISprite29.x%20%2B%22%20lat%3A%22%2BAISprite29.y%2B%22%20%20%20angel%3A%22%2BAISprite29.angle%2B%22%20%20%20%20speed%3A%20%22%2B((AISprite29.x-AISprite29.lastx)%2F(AISprite29.y-AISprite29.lasty))*100%2B%22%5Cn%22" name="2"/>
+    </item>
+    <item type="action" persistent="false" callTarget="instance" callName="setValue" target="AISprite29">
+      <item valueDataType="string" value="lastx" name="10" variable="true"/>
+      <item valueDataType="any" value="AISprite29.x" name="11"/>
+    </item>
+    <item type="action" persistent="false" callTarget="instance" callName="setValue" target="AISprite29" behaviorName="八向运动">
+      <item valueDataType="string" value="lasty" name="10" variable="true"/>
+      <item valueDataType="any" value="AISprite29.y" name="11"/>
+    </item>
+    <item type="action" persistent="false" callTarget="instance" callName="setValue" target="AISprite29">
+      <item valueDataType="string" value="lastangle" name="10" variable="true"/>
+      <item valueDataType="any" value="AISprite29.angle" name="11"/>
+    </item>
+  </item>
+  <item type="event" conditionRelationShip="true" triggerOnceWhileTrue="false">
+    <item type="condition" callTarget="instance" paramsClass="EveryXSecondsEvent" callName="everyXSecondEvent" isTrigger="false" target="System">
+      <item valueDataType="number" value="11" name="interval"/>
+    </item>
+    <item type="action" persistent="false" callTarget="instance" callName="setText" target="AITextField111">
+      <item valueDataType="string" value="" name="1"/>
     </item>
   </item>
 </eventSheets>
