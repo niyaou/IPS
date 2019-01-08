@@ -14,15 +14,15 @@
     <button class="button-label">断点续传同步</button>
 </div>
     <div class="button current" id="uploadBroken1">
-        <button class="button-label">断点续传异步</button>
+        <button class="button-label">>断点续传异步</button>
     </div>
 <div class="button current">
-    <button id="toStop">暂停一下</button>
+    <button id="toStop">暂停</button>
 </div>
 <div class="button current">
-    <button id="toStart">再次开始</button>
+    <button id="toStart">开始</button>
 </div>
-    <button class="a"> click me</button>
+    <button class="a" id="demo"> click me</button>
 
 </div>
 </body>
@@ -36,14 +36,14 @@ var fileSize='15360kb'
     initUploadFileBroken("upload files",types);
     nitUploadFileBrokenSync("upload files",types);
 
-    /* 断点续传  */
+    /* 鏂偣缁紶  */
     function initUploadFileBroken(fileType, str) {
         var filters = {
             mime_types: [
                 {title: fileType, extensions: str}
             ],
-            max_file_size: '41943040kb', //最大只能上传1024kb的文件
-            prevent_duplicates: false //不允许选取重复文件
+            max_file_size: '41943040kb', //鏈�澶у彧鑳戒笂浼�1024kb鐨勬枃浠�
+            prevent_duplicates: false //涓嶅厑璁搁�夊彇閲嶅鏂囦欢
         };
         if (uploaderBroken != null) {
             uploaderBroken.destroy();
@@ -55,7 +55,7 @@ var fileSize='15360kb'
             url:'/fileuploadBroken',
             multi_selection: false,
             max_retries:3,
-            chunk_size:fileSize //10MB
+            chunk_size:fileSize //15MB
         });
         uploaderBroken.init();
         var  myDate ;
@@ -80,7 +80,7 @@ var fileSize='15360kb'
             var tdName = document.createElement("td");
             tdName.innerHTML = file['name'];
             var tdProgress = document.createElement("td");
-            tdProgress.innerHTML = '上传中 0%';
+            tdProgress.innerHTML = '涓婁紶涓� 0%';
             tdProgress.setAttribute('class', 'percentTable');
             var tdBar = document.createElement("td");
             var tdBarBar = document.createElement('span');
@@ -96,11 +96,11 @@ var fileSize='15360kb'
             // console.info(info)
         });
         uploaderBroken.bind('UploadProgress', function (up, file) {
-            //上传中，显示进度条
+            //涓婁紶涓紝鏄剧ず杩涘害鏉�
             var percent = file.percent;
             var fileElem = $("#" + file.id);
             fileElem.find('.bar').css({"width": percent + "%"});
-            fileElem.find(".percentTable").text("上传中 " + percent + "%");
+            fileElem.find(".percentTable").text("涓婁紶涓� " + percent + "%");
         });
 
         uploaderBroken.bind('FileUploaded', function (up, file, info) {
@@ -108,7 +108,7 @@ var fileSize='15360kb'
 
             myDate=new Date();
             var news=myDate.getTime()
-            console.info("传输成功"+news+"  cost:"+(news-org))
+            console.info("浼犺緭鎴愬姛"+news+"  cost:"+(news-org))
         });
 
         uploaderBroken.bind('UploadComplete', function (up, files) {
@@ -122,16 +122,25 @@ var fileSize='15360kb'
         $("#toStart").on('click', function () {
             uploaderBroken.start();
         });
+        
+        
+        $("#demo").on('click', function () {
+        	  $.get('/demo',function (e) {
+        		  console.info(e)
+        	  })
+        });
+        
+        
     }
 
-    /* 断点续传  */
+    /* 鏂偣缁紶  */
     function nitUploadFileBrokenSync(fileType, str) {
         var filters = {
             mime_types: [
                 {title: fileType, extensions: str}
             ],
-            max_file_size: '41943040kb', //最大只能上传1024kb的文件
-            prevent_duplicates: false //不允许选取重复文件
+            max_file_size: '41943040kb', //鏈�澶у彧鑳戒笂浼�1024kb鐨勬枃浠�
+            prevent_duplicates: false //涓嶅厑璁搁�夊彇閲嶅鏂囦欢
         };
         if (uploaderBrokensync != null) {
             uploaderBrokensync.destroy();
@@ -160,11 +169,11 @@ var fileSize='15360kb'
             // console.info(info)
         });
         uploaderBrokensync.bind('UploadProgress', function (up, file) {
-            //上传中，显示进度条
+            //涓婁紶涓紝鏄剧ず杩涘害鏉�
             var percent = file.percent;
             var fileElem = $("#" + file.id);
             fileElem.find('.bar').css({"width": percent + "%"});
-            fileElem.find(".percentTable").text("上传中 " + percent + "%");
+            fileElem.find(".percentTable").text("涓婁紶涓� " + percent + "%");
         });
 
         uploaderBrokensync.bind('FileUploaded', function (up, file, info) {
@@ -172,7 +181,7 @@ var fileSize='15360kb'
 
             myDate=new Date();
             var news=myDate.getTime()
-            console.info("传输成功"+news+"  cost:"+(news-org))
+            console.info("浼犺緭鎴愬姛"+news+"  cost:"+(news-org))
         });
 
         uploaderBrokensync.bind('UploadComplete', function (up, files) {

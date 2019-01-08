@@ -1,34 +1,49 @@
 package com.niyaou.fileupload;
 
-import com.alibaba.fastjson.JSON;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.*;
-import java.util.concurrent.*;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 
 @Controller
 public class HelloController {
   private String longitude;
   private String latitude;
+  private String HDFSDIR = "/test/upload/";
     @RequestMapping(value = "/")
     @ResponseBody
     public String hello() {
@@ -106,6 +121,16 @@ public class HelloController {
     }
 
 
+    
+    
+    @RequestMapping(value = "/demo",method = RequestMethod.GET)
+    @ResponseBody
+    public String clickDemo() {
+    	HdfsUtils u = new HdfsUtils();
+    	u.explorePath("/test/upload/hadoop-2.7.3.7z.downloadTest.zip");
+        return "demo";
+    }
+    
 
 
     ThreadPoolExecutor execute = new ThreadPoolExecutor(6, 10,
@@ -206,36 +231,13 @@ public class HelloController {
                 String fileName = names.next();
                 MultipartFile part = request.getFile(fileName);
                 int size = (int) part.getSize();
-//                byte[] copy=new byte[1024*1024*2];
-//                IOUtils.read(part.getInputStream(),copy);
-
-                byte[] copy = IOUtils.toByteArray(part.getInputStream());
-
-                part.getInputStream().close();
-                result.put("write", (name + chunk + "_chuck.part"));
-                String data = JSON.toJSONString(result);
-                writeResponse(response, data);
-                writeToFile(copy, null, size, FileUtil.currentWorkDir+"temp\\", (name+"_chuck." + chunk + ".part"), obj.toJSONString());
-
-
-//                Future f = execute.submit(writeFileSyn(copy, null, size, FileUtil.currentWorkDir, (name + chunk + "_chuck.part"), obj.toJSONString()));
-                copy = null;
-
-
-
+                
+                writeToHdfs(part.getInputStream(),name,(name +"."+ String.format("%06d", Integer.parseInt(chunk)) + "_chuck.part"),"","","","",size);
+                
                 request.getInputStream().close();
-
-//                logger.info( ""+((LinkedBlockingQueue)execute.getQueue()).size());
-
-//                String write = (String) f.get();
-//                if (execute.getActiveCount() == 0) {
                 if (Integer.parseInt(request.getParameter("chunks"))-Integer.parseInt(request.getParameter("chunk"))==1) {
                     logger.info("合并文件");
-                    FileUtil utils = new FileUtil();
-                    int blockFileSize = 1024 * 1024 * 1;
-                    utils.mergePartFiles(FileUtil.currentWorkDir+"temp\\", ".part", blockFileSize, FileUtil.currentWorkDir+"temp\\" + name);
-
-
+                    mergeHDFSFile(HDFSDIR+name+".tmp",HDFSDIR+ name);
                 }
             }
 
@@ -243,41 +245,27 @@ public class HelloController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        catch (InterruptedException e) {
-//            e.printStackTrace();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        }
     }
 
+    public void mergeHDFSFile(String path,String File) {
+    	HdfsUtils u = new HdfsUtils();
+    	u.mergeFile(path, File);
+    }
+    
     public void writeResponse(HttpServletResponse response, String data) {
-
-        OutputStream outputStream = null;//获取OutputStream输出流
-        response.setHeader("content-type", "text/html;charset=UTF-8");//通过设置响应头控制浏览器以UTF-8的编码显示数据，如果不加这句话，那么浏览器显示的将是乱码
+        OutputStream outputStream = null;
+        response.setHeader("content-type", "text/html;charset=UTF-8");
         try {
             outputStream = response.getOutputStream();
-            byte[] dataByteArr = new byte[0];//将字符转换成字节数组，指定以UTF-8编码进行转换
+            byte[] dataByteArr = new byte[0];
             dataByteArr = data.getBytes("UTF-8");
-            outputStream.write(dataByteArr);//使用OutputStream流向客户端输出字节数组
+            outputStream.write(dataByteArr);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        /**
-         37          * data.getBytes()是一个将字符转换成字节数组的过程，这个过程中一定会去查码表，
-         38          * 如果是中文的操作系统环境，默认就是查找查GB2312的码表，
-         39          * 将字符转换成字节数组的过程就是将中文字符转换成GB2312的码表上对应的数字
-         40          * 比如： "中"在GB2312的码表上对应的数字是98
-         41          *         "国"在GB2312的码表上对应的数字是99
-         42          */
-        /**
-         44          * getBytes()方法如果不带参数，那么就会根据操作系统的语言环境来选择转换码表，如果是中文操作系统，那么就使用GB2312的码表
-         45          */
-
     }
 
     private String writeToFile(byte[] copy, InputStream iStream, int size, String savePath, String fileName, String json) {
-//        logger.info("断点续传发送数据--------" + json);
         File fileDir = new File(savePath);
         if (!fileDir.exists()) {
             fileDir.mkdirs();
@@ -345,5 +333,38 @@ public class HelloController {
        return Math.abs(b);
     }
 
+    
+    @SuppressWarnings("rawtypes")
+	private String writeToHdfs(InputStream stream, final String savePath, String fileName, String username, String market, String userGroup,String mimetype,long size) {
+
+		String hdfsPath = HDFSDIR +savePath+".tmp"+"/"+ fileName;
+
+		
+		 @SuppressWarnings("unchecked")
+		Future f = execute.submit(new Callable() {
+	            @Override
+	            public String call() throws Exception {
+	            	HdfsUtils u = new HdfsUtils();
+					try {
+						BufferedInputStream zipTest = new BufferedInputStream(stream);
+						u.uploadFile(zipTest, hdfsPath);
+						zipTest.close();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+	                return hdfsPath;
+	            }
+	        });
+
+		 
+		try {
+			logger.info("上传文件到hdfs,路径:" + f.get());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
+		return hdfsPath;
+	}
 
 }

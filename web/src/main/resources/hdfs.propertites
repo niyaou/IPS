@@ -1,0 +1,6 @@
+fs.defaultFS=hdfs://desay.hadoop2.com:8020
+dfs.user=hdfs
+push.dest.server=10.217.2.228
+push.dest.username=root
+push.dest.password=1qaz@wsx3E
+push.dest.dir=/test
