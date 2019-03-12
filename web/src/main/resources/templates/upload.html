@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Spring Boot Demo - FreeMarker</title>
+    <!--<link href="/css/index.css" rel="stylesheet">-->
+    <script type="text/javascript" src="/static/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/plupload/js/moxie.js"></script>
+    <script type="text/javascript" src="/static/plupload/js/plupload.dev.js"></script>
+
+    <script type="text/javascript" src="/static/js/mimetype.js"></script>
+    <!--<script type="text/javascript" src="/js/index.js"></script>-->
+</head>
+<body style="width:100%;height:100%; text-align:center;">
+
+    <div id="container">
+        <a id="browse" href="javascript:;">[Browse...]</a>
+        <a id="start-upload" href="javascript:;">[Start Upload]</a>
+    </div>
+</body>
+
+
+<script type="text/javascript">
+var uploader = new plupload.Uploader({
+    browse_button: 'browse', 
+    url: 'http://localhost:6228/fileSystem/upload/directory'
+
+  });
+
+
+
+   uploader.init();  
+  
+   
+   uploader.bind('FilesAdded',function(uploader,file){
+	    for(var i in file){
+	    	file[i].params=""+i;
+	           console.info(file[i])
+	    }
+
+	     uploader.settings.url=encodeURI(uploader.settings.url)
+	});
+   document.getElementById('start-upload').onclick = function(){
+	
+	        uploader.start();   
+	} 
+
+</script>
+</html>
