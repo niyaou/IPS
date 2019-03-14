@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Spring Boot Demo - FreeMarker</title>
+    <!--<link href="/css/index.css" rel="stylesheet">-->
+    <script type="text/javascript" src="/static/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/plupload/js/moxie.js"></script>
+    <script type="text/javascript" src="/static/plupload/js/plupload.dev.js"></script>
+
+    <script type="text/javascript" src="/static/js/mimetype.js"></script>
+    <!--<script type="text/javascript" src="/js/index.js"></script>-->
+</head>
+<body style="width:100%;height:100%; text-align:center;">
+
+    <div id="container">
+        <a id="browse" href="javascript:;">[Browse...]</a>
+        <a id="start-upload" href="javascript:;">[Start Upload]</a>
+    </div>
+</body>
+
+
+</br>
+</br>
+
+
+<form class="form-horizontal" role="form" id="fileUploadForm" name="fileUploadForm" method="post" enctype="multipart/form-data">
+              <div class="form-group">
+                <input id="fileFolder" name="fileFolder" type="file"    accept="*/*"><span id="msg" style="color:#F00"></span>
+              </div>
+              <button type="button" class="btn btn-primary" id="subButton" >Submit</button>
+              <button type="button" class="btn btn-primary" id="cancelButton" >Cancel</button>
+              <button type="button" class="btn btn-primary" id="queryButton" >explore</button>
+              
+            </form>
+            
+            
+<script type="text/javascript">
+
+
+
+   
+
+
+
+ var form = new FormData();
+var ajax=null;
+var multi_chunks=[]
+var tags=null
+var totalSize=0;
+var token="2628f5ec-61b3-43d8-a4f5-9a6bc35e18e6"
+document.getElementById('fileFolder').onchange = function(e) {
+	multi_chunks=[]
+		//判断是否选中文件
+		var file = $("#fileFolder").val();
+		var files = e.target.files; // FileList
+		//文件数量
+		for (var i = 0, f; f = files[i]; ++i) {
+			  size = f.size > 1024
+              ? f.size / 1024  > 1024
+              ? f.size / (1024 * 1024) > 1024
+              ? (f.size / (1024 * 1024 * 1024)).toFixed(2) + 'GB'
+              : (f.size / (1024 * 1024)).toFixed(2) + 'MB'
+              : (f.size / 1024).toFixed(2) + 'KB'
+              : (f.size).toFixed(2) + 'B';        
+/* 			console.info(f) */
+			console.info(size)
+			
+			var vo = {
+				"relativePath" : f.name,
+				"tags" : [ {
+					"parentId" : "1",
+					"id" : "2"
+				} ]
+			}
+		    totalSize =f.size
+			    var   eachSize = 50*1024*1024,
+                    chunk = Math.ceil(totalSize / eachSize);
+			
+		   // 设置分片的开始结尾
+                    var  blobFrom = chunk * eachSize, // 分段开始
+                        blobTo = (chunk + 1) * eachSize > totalSize ? totalSize : (chunk + 1) * eachSize, // 分段结尾
+                        percent = (100 * blobTo / totalSize).toFixed(1), // 已上传的百分比
+                        timeout = 5000;// 超时时间
+/* 			console.info(f) */
+/* 			console.info(eachSize)
+			console.info(totalSize) */
+			console.info(chunk)
+	
+/* 			console.info(percent) */
+		
+		
+			for(var i=0;i<chunk;i++){
+				var  blobTo = (i + 1) * eachSize > totalSize ? totalSize : (i + 1) * eachSize; // 分段结尾
+				var chunks= f.slice(i*eachSize,blobTo);
+				multi_chunks.push(chunks)
+
+				
+			}
+                        
+			tags=vo
+			
+
+		}
+
+	};
+
+	  function upload(i,length){
+		
+		     if(i<length){ 
+		    	 var vo={"size":totalSize,"chunks":length,"current":(i+1)}
+		    	 var data= new   FormData();
+                 data.append("tags", JSON.stringify(tags))
+                 data.append("file",multi_chunks[i]) 
+                 data.append("chunks",JSON.stringify(vo)) 
+                 console.info(JSON.stringify(vo))
+         
+		    	 $ .ajax({
+                      type : "post",
+                      data : data,
+                      headers : {
+                          "access_token" :token
+                      },
+                      url : "http://localhost:6228/fileSystem/upload/single/chunk/8a59869e697f088c01697f14a52b0001",
+                      contentType : false,
+                      processData : false,
+                      cache : false,
+                      success : function(e) {
+                    	  i++;
+                    	  upload(i,length)
+                      },
+                      error : function(data) {
+                          console.log(data);
+                      }
+                  })
+		     }
+		  
+	  }
+	
+	$("#subButton")
+			.click(
+					function() {
+						   console.info(JSON.stringify(tags))
+						   console.info(multi_chunks)
+						   var i=0;
+						   var lenght=multi_chunks.length;
+/* 						   for(var i=0; i< multi_chunks.length;i++){ */
+							  
+/* 	                            console.info(multi_chunks)
+	                            console.info(multi_chunks.length)
+	                            console.info(i+1) */
+	                            upload(i,lenght)
+/* 						   } */
+				  
+
+	
+					}) 
+					
+					   
+    $("#queryButton").click(function(){
+        $ .ajax({
+            type : "get",
+            headers : {
+                "access_token" :token
+            },
+            url : "http://localhost:6228/fileSystem/files/chunks",
+            contentType : false,
+            processData : false,
+            cache : false,
+            success : function(e) {
+              console.info(e)
+              
+              console.info(JSON.stringify(e))
+                 upload(e[0].current,e[0].chunks) 
+            },
+            error : function(data) {
+                console.log(data);
+            }
+        })
+    })
+</script>
+</html>

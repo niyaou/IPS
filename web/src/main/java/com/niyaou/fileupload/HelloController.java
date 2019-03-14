@@ -64,6 +64,11 @@ public class HelloController {
     public String upload(HttpServletRequest request, HttpServletResponse response, ModelMap ModelMap) {
      return "upload";
     }
+    
+    @RequestMapping(value = "/chunk")
+    public String chunk(HttpServletRequest request, HttpServletResponse response, ModelMap ModelMap) {
+     return "chunk";
+    }
 
     @RequestMapping(value = "/parking")
     public String parking(HttpServletRequest request, HttpServletResponse response, ModelMap ModelMap) {
@@ -199,7 +204,7 @@ public class HelloController {
                     logger.info("合并文件1");
                     FileUtil utils = new FileUtil();
                     int blockFileSize = 1024 * 1024 * 1;
-//                    utils.mergePartFiles(FileUtil.currentWorkDir+"temp\\", ".part", blockFileSize, FileUtil.currentWorkDir + name);
+                    utils.mergePartFiles(FileUtil.currentWorkDir+"temp\\", ".part", blockFileSize, FileUtil.currentWorkDir + name);
                 }
             }
 
