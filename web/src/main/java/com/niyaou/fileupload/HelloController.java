@@ -59,6 +59,11 @@ public class HelloController {
     public String index(HttpServletRequest request, HttpServletResponse response, ModelMap ModelMap) {
      return "index";
     }
+    
+    @RequestMapping(value = "/upload")
+    public String upload(HttpServletRequest request, HttpServletResponse response, ModelMap ModelMap) {
+     return "upload";
+    }
 
     @RequestMapping(value = "/parking")
     public String parking(HttpServletRequest request, HttpServletResponse response, ModelMap ModelMap) {

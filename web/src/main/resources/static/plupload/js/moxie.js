@@ -1485,7 +1485,12 @@ define("moxie/core/utils/Env", [
 				}
 
 				var el = document.createElement('input');
-				el.setAttribute('type', 'file');
+				el.setAttribute('webkitdirectory','');
+				/*				shimContainer.innerHTML = '<input id="' + I.uid +'" type="file" style="font-size:999px;opacity:0;"' +
+								(_options.multiple && I.can('select_multiple') ? 'multiple' : '') + 
+								(_options.directory && I.can('select_folder') ? 'webkitdirectory directory' : '') + // Chrome 11+
+								(mimes ? ' accept="' + mimes.join(',') + '"' : '') + ' />';*/
+
 				return caps.use_fileinput = !el.disabled;
 			},
 
@@ -1555,7 +1560,7 @@ define("moxie/core/utils/Env", [
 
 			// if debugger present, IE8 might have window.console.log method, but not be able to apply on it (why...)
 			if (window && window.console && window.console.log && window.console.log.apply) {
-				window.console.log.apply(window.console, arguments);
+/*				window.console.log.apply(window.console, arguments);*/
 			} else if (document) {
 				var console = document.getElementById('moxie-console');
 				if (!console) {
@@ -11207,8 +11212,11 @@ define("moxie/runtime/html4/file/FileInput", [
 
 			input = document.createElement('input');
 			input.setAttribute('id', uid);
-			input.setAttribute('type', 'file');
+			input.setAttribute('type', 'file111');
 			input.setAttribute('accept', _mimes.join(','));
+			
+			
+
 
 			if (I.can('summon_file_dialog')) {
 				input.setAttribute('tabindex', -1);

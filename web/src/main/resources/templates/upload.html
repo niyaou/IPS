@@ -19,30 +19,162 @@
 </body>
 
 
+</br>
+</br>
+
+
+<form class="form-horizontal" role="form" id="fileUploadForm" name="fileUploadForm" method="post" enctype="multipart/form-data">
+              <div class="form-group">
+                <input id="fileFolder" name="fileFolder" type="file" webkitdirectory  multiple="multiple" accept="*/*"><span id="msg" style="color:#F00"></span>
+              <input id="fileFolder1" name="fileFolder1" type="file"   multiple="multiple" accept="*/*"><span id="msg" style="color:#F00"></span>
+            
+              </div>
+              <button type="button" class="btn btn-primary" id="subButton" >Submit</button>
+               <button type="button" class="btn btn-primary" id="subButton1" >Submit1</button>
+            </form>
+            
+            
 <script type="text/javascript">
+
 var uploader = new plupload.Uploader({
     browse_button: 'browse', 
     url: 'http://localhost:6228/fileSystem/upload/directory'
-
   });
 
-
-
    uploader.init();  
-  
-   
    uploader.bind('FilesAdded',function(uploader,file){
 	    for(var i in file){
 	    	file[i].params=""+i;
 	           console.info(file[i])
 	    }
-
-	     uploader.settings.url=encodeURI(uploader.settings.url)
+	  uploader.settings.url=encodeURI(uploader.settings.url)
 	});
    document.getElementById('start-upload').onclick = function(){
-	
-	        uploader.start();   
+     uploader.start();   
 	} 
 
+   
+
+
+ //页面提示信息
+ var msg;
+ //文件数量限制
+ var filesCount=2000;
+ //文件夹大小限制 2000M
+ var filesSize=2147483648;
+ //实际的文件数量
+ var actual_filesCount=0;
+ //实际的文件夹大小
+ var actual_filesSize=0;
+
+ var form = new FormData();
+ var tags=[]
+ var multi=[]
+
+	document.getElementById('fileFolder').onchange = function(e) {
+		tags = []
+		multi = []
+		//判断是否选中文件
+		var file = $("#fileFolder").val();
+		var files = e.target.files; // FileList
+		//文件数量
+		for (var i = 0, f; f = files[i]; ++i) {
+			console.info(f)
+			multi.push(f)
+			var vo = {
+				"relativePath" : f.name,
+				"tags" : [ {
+					"parentId" : "1",
+					"id" : "2"
+				} ]
+			}
+			form.append("file", f)
+			tags.push(vo)
+		}
+
+		form.append("tags", JSON.stringify(tags))
+
+	};
+
+	   document.getElementById('fileFolder1').onchange = function(e) {
+	        tags = []
+	        multi = []
+	        //判断是否选中文件
+	        var file = $("#fileFolder1").val();
+	        var files = e.target.files; // FileList
+	        for (var i = 0, f; f = files[i]; ++i) {
+	            console.info(f)
+	            multi.push(f)
+	            var vo = {
+	                "relativePath" : f.name,
+	                "tags" : [ {
+	                    "parentId" : "1",
+	                    "id" : "2"
+	                } ]
+	            }
+	            form.append("file", f)
+	            tags.push(vo)
+	        }
+
+	        form.append("tags", JSON.stringify(tags))
+
+	    };
+	
+	
+	
+	$("#subButton")
+			.click(
+					function() {
+
+						console.info(form)
+						console.info(JSON.stringify(form))
+
+						$
+								.ajax({
+									type : "post",
+									data : form,
+									headers : {
+										"access_token" : "152a2b3b-21e1-4d99-91c8-0df910f0a955"
+									},
+									url : "http://localhost:6228/fileSystem/upload/bulk/8a59869e697659c80169765ab4410001/app",
+									contentType : false,
+									processData : false,
+									cache : false,
+									success : function(e) {
+										console.info(e)
+									},
+									error : function(data) {
+										console.log(data);
+									}
+								});
+					})
+					
+					   
+    $("#subButton1")
+            .click(
+                    function() {
+
+                        console.info(form)
+                        console.info(JSON.stringify(form))
+
+                        $
+                                .ajax({
+                                    type : "post",
+                                    data : form,
+                                    headers : {
+                                        "access_token" : "152a2b3b-21e1-4d99-91c8-0df910f0a955"
+                                    },
+                                    url : "http://localhost:6228/fileSystem/upload/bulk/8a59869e697b143a01697b1553540001",
+                                    contentType : false,
+                                    processData : false,
+                                    cache : false,
+                                    success : function(e) {
+                                        console.info(e)
+                                    },
+                                    error : function(data) {
+                                        console.log(data);
+                                    }
+                                });
+                    })
 </script>
 </html>

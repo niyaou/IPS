@@ -25,6 +25,7 @@ public class FileuploadApplication {
         MultipartConfigFactory factory = new MultipartConfigFactory();
         //单个文件最大
         factory.setMaxFileSize(DataSize.of(50L, DataUnit.MEGABYTES));
+        
         return factory.createMultipartConfig();
     }
     }
