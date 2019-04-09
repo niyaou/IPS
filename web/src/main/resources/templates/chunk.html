@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+ <meta charset="UTF-8">
     <title>Spring Boot Demo - FreeMarker</title>
     <!--<link href="/css/index.css" rel="stylesheet">-->
     <script type="text/javascript" src="/static/jquery/jquery.min.js"></script>
@@ -47,13 +48,13 @@ var ajax=null;
 var multi_chunks=[]
 var tags=null
 var totalSize=0;
-var token="bbf16a6d-2b68-4a85-af7f-e7510df99a69"
+var token="e773b917-edda-4bf6-9ef8-656168ed6457"
 document.getElementById('fileFolder').onchange = function(e) {
 	multi_chunks=[]
-		//�ж��Ƿ�ѡ���ļ�
+		//判断是否选中文件
 		var file = $("#fileFolder").val();
 		var files = e.target.files; // FileList
-		//�ļ�����
+		//文件数量
 		for (var i = 0, f; f = files[i]; ++i) {
 			  size = f.size > 1024
               ? f.size / 1024  > 1024
@@ -63,34 +64,34 @@ document.getElementById('fileFolder').onchange = function(e) {
               : (f.size / 1024).toFixed(2) + 'KB'
               : (f.size).toFixed(2) + 'B';        
 /* 			console.info(f) */
-			console.info(size)
+			/* console.info(size) */
 			
 			var vo = {
-				"relativePath" : f.name,
-				"tags" : [ {
-					"parentId" : "1",
-					"id" : "2"
-				} ]
+				"fileName" : f.name,
+				"productId":"1",
+			    "productName":"固定费",
+			    "deviceId":"3",
+			    "deviceName":"的问题会给"
 			}
 		    totalSize =f.size
 			    var   eachSize = 50*1024*1024,
                     chunk = Math.ceil(totalSize / eachSize);
 			
-		   // ���÷�Ƭ�Ŀ�ʼ��β
-                    var  blobFrom = chunk * eachSize, // �ֶο�ʼ
-                        blobTo = (chunk + 1) * eachSize > totalSize ? totalSize : (chunk + 1) * eachSize, // �ֶν�β
-                        percent = (100 * blobTo / totalSize).toFixed(1), // ���ϴ��İٷֱ�
-                        timeout = 5000;// ��ʱʱ��
+		   // 设置分片的开始结尾
+                    var  blobFrom = chunk * eachSize, // 分段开始
+                        blobTo = (chunk + 1) * eachSize > totalSize ? totalSize : (chunk + 1) * eachSize, // 分段结尾
+                        percent = (100 * blobTo / totalSize).toFixed(1), // 已上传的百分比
+                        timeout = 5000;// 超时时间
 /* 			console.info(f) */
 /* 			console.info(eachSize)
 			console.info(totalSize) */
-			console.info(chunk)
+			/* console.info(chunk) */
 	
 /* 			console.info(percent) */
 		
 		
 			for(var i=0;i<chunk;i++){
-				var  blobTo = (i + 1) * eachSize > totalSize ? totalSize : (i + 1) * eachSize; // �ֶν�β
+				var  blobTo = (i + 1) * eachSize > totalSize ? totalSize : (i + 1) * eachSize; // 分段结尾
 				var chunks= f.slice(i*eachSize,blobTo);
 				multi_chunks.push(chunks)
 
@@ -98,21 +99,25 @@ document.getElementById('fileFolder').onchange = function(e) {
 			}
                         
 			tags=vo
-			
+			console.info(vo)
+			console.info(tags)
 
 		}
 
 	};
 
-	  function upload(i,length){
-		
+	  function upload(i,length,fileId){
+		     
 		     if(i<length){ 
-		    	 var vo={"size":totalSize,"chunks":length,"current":(i+1)}
+		    	 var vo={"fileId":fileId,
+		    			 "size":totalSize,
+		    			 "chunks":length,
+		    			 "current":(i+1)}
 		    	 var data= new   FormData();
-                 data.append("tags", JSON.stringify(tags))
+                 data.append("vo", JSON.stringify(tags))
                  data.append("file",multi_chunks[i]) 
                  data.append("chunks",JSON.stringify(vo)) 
-                 console.info(JSON.stringify(vo))
+              /*    console.info(JSON.stringify(vo)) */
          
 		    	 $ .ajax({
                       type : "post",
@@ -120,13 +125,14 @@ document.getElementById('fileFolder').onchange = function(e) {
                       headers : {
                           "access_token" :token
                       },
-                      url : "http://localhost:6228/fileSystem/upload/single/chunk/8a59869e697f088c01697f14a52b0001",
+                      url : "http://localhost:6228/fileSystem/files",
                       contentType : false,
                       processData : false,
                       cache : false,
                       success : function(e) {
+                    	  console.info(e)
                     	  i++;
-                    	  upload(i,length)
+                    	  upload(i,length,e.data)
                       },
                       error : function(data) {
                           console.log(data);
@@ -139,8 +145,8 @@ document.getElementById('fileFolder').onchange = function(e) {
 	$("#subButton")
 			.click(
 					function() {
-						   console.info(JSON.stringify(tags))
-						   console.info(multi_chunks)
+/* 						   console.info(JSON.stringify(tags))
+						   console.info(multi_chunks) */
 						   var i=0;
 						   var lenght=multi_chunks.length;
 /* 						   for(var i=0; i< multi_chunks.length;i++){ */
@@ -148,7 +154,7 @@ document.getElementById('fileFolder').onchange = function(e) {
 /* 	                            console.info(multi_chunks)
 	                            console.info(multi_chunks.length)
 	                            console.info(i+1) */
-	                            upload(i,lenght)
+	                          upload(i,lenght,"") 
 /* 						   } */
 				  
 
@@ -170,7 +176,7 @@ document.getElementById('fileFolder').onchange = function(e) {
               console.info(e)
               
               console.info(JSON.stringify(e))
-                 upload(e[0].current,e[0].chunks) 
+                 upload(e.data[0].current,e.data[0].chunks,e.data[0].fileId) 
             },
             error : function(data) {
                 console.log(data);
