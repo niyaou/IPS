@@ -14,10 +14,11 @@ import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.settings.SettingsFilter;
 import org.elasticsearch.plugins.ActionPlugin;
 import org.elasticsearch.plugins.Plugin;
+import org.elasticsearch.plugins.SearchPlugin;
 import org.elasticsearch.rest.RestController;
 import org.elasticsearch.rest.RestHandler;
 
-public class SqlHitsPlugin extends Plugin implements ActionPlugin {
+public class SqlHitsPlugin extends Plugin implements ActionPlugin,SearchPlugin {
     private final static Logger logger = LogManager.getLogger(SqlHitsPlugin.class);
     public SqlHitsPlugin() {
         super();
