@@ -82,22 +82,11 @@ document.getElementById('fileFolder').onchange = function(e) {
                         blobTo = (chunk + 1) * eachSize > totalSize ? totalSize : (chunk + 1) * eachSize, // 分段结尾
                         percent = (100 * blobTo / totalSize).toFixed(1), // 已上传的百分比
                         timeout = 5000;// 超时时间
-/* 			console.info(f) */
-/* 			console.info(eachSize)
-			console.info(totalSize) */
-			/* console.info(chunk) */
-	
-/* 			console.info(percent) */
-		
-		
 			for(var i=0;i<chunk;i++){
 				var  blobTo = (i + 1) * eachSize > totalSize ? totalSize : (i + 1) * eachSize; // 分段结尾
 				var chunks= f.slice(i*eachSize,blobTo);
 				multi_chunks.push(chunks)
-
-				
 			}
-                        
 			tags=vo
 			console.info(vo)
 			console.info(tags)
