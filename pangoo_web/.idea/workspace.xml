@@ -11,77 +11,100 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="custom.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="94" column="7" lean-forward="true" selection-start-line="94" selection-start-column="7" selection-end-line="94" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-                <element signature="e#0#53460#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="19">
+              <caret line="42" column="29" lean-forward="false" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_portrain_echarts.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gentelella-master/desay/user_portrain_echarts.html">
+      <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gentelella-master/build/js/custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="61" column="108" lean-forward="false" selection-start-line="61" selection-start-column="68" selection-end-line="61" selection-end-column="108" />
-              <folding>
-                <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="84626">
+              <caret line="4454" column="20" lean-forward="false" selection-start-line="4454" selection-start-column="20" selection-end-line="4455" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="desay_template.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chinawithcity.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/chinawithcity.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="684">
+              <caret line="36" column="275" lean-forward="false" selection-start-line="36" selection-start-column="275" selection-end-line="36" selection-end-column="275" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shanghai.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/shanghai.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="24" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="china.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/china.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="desay_template.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gentelella-master/desay/desay_template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1826">
-              <caret line="318" column="6" lean-forward="false" selection-start-line="318" selection-start-column="6" selection-end-line="318" selection-end-column="6" />
+            <state relative-caret-position="3097">
+              <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
               <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gentelella-master/vendors/bootstrap/dist/css/bootstrap.css">
+      <file leaf-file-name="echarts.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gentelella-master/desay/echarts.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="5030" column="5" lean-forward="false" selection-start-line="5030" selection-start-column="1" selection-end-line="5030" selection-end-column="5" />
+            <state relative-caret-position="10393">
+              <caret line="547" column="45" lean-forward="false" selection-start-line="547" selection-start-column="29" selection-end-line="547" selection-end-column="45" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gentelella-master/desay/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="703">
+              <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="39" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="echarts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gentelella-master/vendors/echarts/dist/echarts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352621">
+              <caret line="18559" column="0" lean-forward="false" selection-start-line="18559" selection-start-column="0" selection-end-line="18559" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -91,10 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bar gr</find>
-      <find>echart_bar_horizontal</find>
-      <find>theme</find>
-      <find>don</find>
       <find>echartDonut</find>
       <find>bordered</find>
       <find>echart_donut</find>
@@ -104,8 +123,27 @@
       <find>nav-md</find>
       <find>sub-te</find>
       <find>nav_md</find>
-      <find>$MENU_TOGGLE</find>
       <find>nav-</find>
+      <find>top_nav</find>
+      <find>nav_</find>
+      <find>navbar nav_title</find>
+      <find>line</find>
+      <find>echart_line</find>
+      <find>$MENU_TOGGLE</find>
+      <find>Scatter Graph</find>
+      <find>echart_scatter</find>
+      <find>symbols</find>
+      <find>161.2, 51.6</find>
+      <find>presentation</find>
+      <find>map</find>
+      <find>features</find>
+      <find>scatter</find>
+      <find>var echarts</find>
+      <find>build</find>
+      <find>desay</find>
+      <find>echarts</find>
+      <find>echart_world_map</find>
+      <find>geoCoordMap</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -119,9 +157,19 @@
         <option value="$PROJECT_DIR$/gentelella-master/production/index_desay.html" />
         <option value="$PROJECT_DIR$/gentelella-master/vendors/bootstrap-table/dist/bootstrap-table.css" />
         <option value="$PROJECT_DIR$/gentelella-master/vendors/bootstrap-table/dist/bootstrap-table.min.css" />
-        <option value="$PROJECT_DIR$/gentelella-master/desay/js/custom.js" />
         <option value="$PROJECT_DIR$/gentelella-master/desay/user_portrain_echarts.html" />
+        <option value="$PROJECT_DIR$/gentelella-master/build/css/custom.css" />
+        <option value="$PROJECT_DIR$/gentelella-master/desay/css/custom.css" />
+        <option value="$PROJECT_DIR$/gentelella-master/build/china.json" />
+        <option value="$PROJECT_DIR$/gentelella-master/vendors/echarts/map/json/china.json" />
         <option value="$PROJECT_DIR$/gentelella-master/desay/desay_template.html" />
+        <option value="$PROJECT_DIR$/gentelella-master/vendors/echarts/dist/echarts.js" />
+        <option value="$PROJECT_DIR$/gentelella-master/build/beijing.json" />
+        <option value="$PROJECT_DIR$/gentelella-master/build/shanghai.json" />
+        <option value="$PROJECT_DIR$/gentelella-master/build/guangzhou.json" />
+        <option value="$PROJECT_DIR$/gentelella-master/build/shenzhen.json" />
+        <option value="$PROJECT_DIR$/gentelella-master/desay/js/chinawithcity.json" />
+        <option value="$PROJECT_DIR$/gentelella-master/desay/js/custom.js" />
       </list>
     </option>
   </component>
@@ -146,10 +194,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,22 +214,20 @@
               <item name="pangoo_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="pangoo_web" type="462c0819:PsiDirectoryNode" />
               <item name="gentelella-master" type="462c0819:PsiDirectoryNode" />
-              <item name="desay" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pangoo_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="pangoo_web" type="462c0819:PsiDirectoryNode" />
               <item name="gentelella-master" type="462c0819:PsiDirectoryNode" />
               <item name="desay" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pangoo_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="pangoo_web" type="462c0819:PsiDirectoryNode" />
               <item name="gentelella-master" type="462c0819:PsiDirectoryNode" />
               <item name="desay" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="maps" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pangoo_web" type="b2602c69:ProjectViewProjectNode" />
@@ -194,24 +240,24 @@
               <item name="pangoo_web" type="462c0819:PsiDirectoryNode" />
               <item name="gentelella-master" type="462c0819:PsiDirectoryNode" />
               <item name="vendors" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+              <item name="echarts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pangoo_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="pangoo_web" type="462c0819:PsiDirectoryNode" />
               <item name="gentelella-master" type="462c0819:PsiDirectoryNode" />
               <item name="vendors" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="echarts" type="462c0819:PsiDirectoryNode" />
+              <item name="map" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pangoo_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="pangoo_web" type="462c0819:PsiDirectoryNode" />
               <item name="gentelella-master" type="462c0819:PsiDirectoryNode" />
               <item name="vendors" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="echarts" type="462c0819:PsiDirectoryNode" />
+              <item name="map" type="462c0819:PsiDirectoryNode" />
+              <item name="json" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -220,14 +266,20 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/project/pangoo" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\uidq1343\Desktop\ct_contest\IPS\pangoo_web\gentelella-master\desay" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\uidq1343\Desktop\ct_contest\IPS\pangoo_web\gentelella-master\desay\js" />
-      <recent name="D:\uidq1343\Desktop\ct_contest\IPS\pangoo_web\gentelella-master" />
-      <recent name="D:\uidq1343\Desktop\ct_contest\IPS\pangoo_web\gentelella-master\production" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\uidq1343\Desktop\ct_contest\IPS\pangoo_web\gentelella-master\desay\images" />
+      <recent name="D:\uidq1343\Desktop\ct_contest\IPS\pangoo_web\gentelella-master\desay\js" />
+      <recent name="D:\uidq1343\Desktop\ct_contest\IPS\pangoo_web\gentelella-master\build" />
+      <recent name="D:\uidq1343\Desktop\ct_contest\IPS\pangoo_web\gentelella-master\desay\css" />
+      <recent name="D:\uidq1343\Desktop\ct_contest\IPS\pangoo_web\gentelella-master\desay" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -363,7 +415,6 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -375,6 +426,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -388,7 +440,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gentelella-master/production/index_desay.html">
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/custom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -396,13 +448,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/build/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84626">
+          <caret line="4454" column="20" lean-forward="false" selection-start-line="4454" selection-start-column="20" selection-end-line="4455" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/chinawithcity.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="36" column="275" lean-forward="false" selection-start-line="36" selection-start-column="275" selection-end-line="36" selection-end-column="275" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/shanghai.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="24" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/china.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/desay_template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3097">
+          <caret line="163" column="0" lean-forward="true" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/echarts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10393">
+          <caret line="547" column="45" lean-forward="false" selection-start-line="547" selection-start-column="29" selection-end-line="547" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="39" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/vendors/echarts/dist/echarts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352621">
+          <caret line="18559" column="0" lean-forward="false" selection-start-line="18559" selection-start-column="0" selection-end-line="18559" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/production/index_desay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gentelella-master/production/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -410,9 +539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="77" column="25" lean-forward="true" selection-start-line="74" selection-start-column="74" selection-end-line="77" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -420,7 +546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -428,15 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-112">
           <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/echarts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -444,7 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -452,7 +567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4923">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -460,15 +574,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="749">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gentelella-master/build/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="464" column="32" lean-forward="true" selection-start-line="464" selection-start-column="32" selection-end-line="464" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -476,15 +581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="471" column="0" lean-forward="true" selection-start-line="471" selection-start-column="0" selection-end-line="489" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gentelella-master/vendors/echarts/dist/echarts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="2638" column="23" lean-forward="false" selection-start-line="2638" selection-start-column="23" selection-end-line="2638" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -492,7 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -500,7 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1596">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -508,7 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -516,15 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -532,57 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/user_portrain_echarts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="61" column="108" lean-forward="false" selection-start-line="61" selection-start-column="68" selection-end-line="61" selection-end-column="108" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="94" column="7" lean-forward="true" selection-start-line="94" selection-start-column="7" selection-end-line="94" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-            <element signature="e#0#53460#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -590,7 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1" column="3016" lean-forward="false" selection-start-line="1" selection-start-column="3015" selection-end-line="1" selection-end-column="3016" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -598,17 +630,164 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
           <caret line="5030" column="5" lean-forward="false" selection-start-line="5030" selection-start-column="1" selection-end-line="5030" selection-end-column="5" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/user_portrain_echarts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="61" column="108" lean-forward="false" selection-start-line="61" selection-start-column="68" selection-end-line="61" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/build/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="194" column="1" lean-forward="true" selection-start-line="194" selection-start-column="1" selection-end-line="194" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="334" column="2" lean-forward="false" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="39" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/vendors/echarts/.bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/echarts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10393">
+          <caret line="547" column="45" lean-forward="false" selection-start-line="547" selection-start-column="29" selection-end-line="547" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/vendors/echarts/map/json/china-contour.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/vendors/echarts/map/json/world.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/vendors/echarts/map/json/china.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/build/china.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gentelella-master/desay/desay_template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1826">
-          <caret line="318" column="6" lean-forward="false" selection-start-line="318" selection-start-column="6" selection-end-line="318" selection-end-column="6" />
+        <state relative-caret-position="3097">
+          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
           <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/vendors/echarts/dist/echarts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352621">
+          <caret line="18559" column="0" lean-forward="false" selection-start-line="18559" selection-start-column="0" selection-end-line="18559" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/beijing.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/guangzhou.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16160" lean-forward="false" selection-start-line="0" selection-start-column="16160" selection-end-line="0" selection-end-column="16160" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/shenzhen.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6687" lean-forward="false" selection-start-line="0" selection-start-column="6687" selection-end-line="0" selection-end-column="6687" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/china.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/shanghai.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="24" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/build/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84626">
+          <caret line="4454" column="20" lean-forward="false" selection-start-line="4454" selection-start-column="20" selection-end-line="4455" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/chinawithcity.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="36" column="275" lean-forward="false" selection-start-line="36" selection-start-column="275" selection-end-line="36" selection-end-column="275" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gentelella-master/desay/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="42" column="29" lean-forward="false" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
