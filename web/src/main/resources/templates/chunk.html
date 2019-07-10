@@ -48,7 +48,9 @@ var ajax=null;
 var multi_chunks=[]
 var tags=null
 var totalSize=0;
-var token="481865f5-7444-42a3-a442-146bddc87bd5"
+var token="094ae486-8185-41f9-8ac8-e7ffffb8c068"
+var fileId_g="C9StlmsBBFFtzJItZtWD"
+var hosts="http://10.217.6.30:6228"
 document.getElementById('fileFolder').onchange = function(e) {
 	multi_chunks=[]
 		//判断是否选中文件
@@ -114,7 +116,7 @@ document.getElementById('fileFolder').onchange = function(e) {
                       headers : {
                           "access_token" :token
                       },
-                      url : "http://localhost:6228/fileSystem/files",
+                      url : hosts+"/fileSystem/files",
                       contentType : false,
                       processData : false,
                       cache : false,
@@ -143,7 +145,7 @@ document.getElementById('fileFolder').onchange = function(e) {
 /* 	                            console.info(multi_chunks)
 	                            console.info(multi_chunks.length)
 	                            console.info(i+1) */
-	                           upload(i,lenght,"9BTeYWoB0Bh637gWksYM")  
+	                           upload(i,lenght,fileId_g)  
 	                         /*   upload(i,lenght,"2Wa-V2oBvAu-3AqucmVa")   */
 /* 						   } */
 				  
@@ -158,7 +160,7 @@ document.getElementById('fileFolder').onchange = function(e) {
             headers : {
                 "access_token" :token
             },
-            url : "http://localhost:6228/fileSystem/files/chunks",
+            url : hosts+"/fileSystem/files/chunks",
             contentType : false,
             processData : false,
             cache : false,
