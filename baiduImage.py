@@ -168,7 +168,7 @@ if __name__ == '__main__':
 #         if c[0] == 2 and (c[1]==0 or c[1] == 512 or c[1] == 16 or c[1] == 1):
 #             continue
         print("x:"+str(c[0])+ "  y:" +str(c[1]))
-        crawler.start('江口沉银', 500, 1,c[0],c[1])
+        crawler.start('江口沉银考古', 500, 1,c[0],c[1])
     crawler.summary()    
     print(' -------mission done---------------')
     # crawler.start('帅哥', 5)  # 抓取关键词为 “帅哥”，总数为 5 页（即总共 5*60=300 张）
